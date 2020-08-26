@@ -38,7 +38,7 @@ self.addEventListener('fetch', evt => {
           console.log('requesting data')
           return new Promise(rs => {
             consumer.port1.onmessage = evt => {
-		    console.log('send data')
+	//	    console.log('send data')
               evt.data
                 ? controller.enqueue(evt.data) // evt.data is Uint8Array
                 : controller.close() // evt.data is null, means the stream ended

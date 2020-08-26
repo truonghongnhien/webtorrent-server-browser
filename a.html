@@ -10,7 +10,7 @@
     <pre id="log"></pre>
     <script>
       const   info ='https://tor.hdv.fun/ytor/e49017caa57ad67a9765efe3f1ff8c3fb0821212.torrent'
-    //  let torrent =addTorrent(sintel)
+      let torrent =addTorrent(info)
       
 
     var logger = document.getElementById('log');
@@ -19,34 +19,6 @@
         }
       navigator.storage.estimate().then((data)=>log(JSON.stringify(data)))
 
-      
-        var torrent = client.add(info, {"store": idb})
-
-  torrent.on('metadata', ()=>{
-    log('Recieved metadata!')
-  })
-  
-  torrent.on('ready', ()=>{
-   log('Store ready!')
-    torrent.files.forEach((file)=>{
-      file.appendTo('body')
-    })
-  })
-  
-  torrent.on('done', ()=>{
-    console.log('Downloaded!')
-  })
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
       
     </script>
     

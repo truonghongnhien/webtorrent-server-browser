@@ -12,19 +12,13 @@
       const   sintel ='https://tor.hdv.fun/ytor/e49017caa57ad67a9765efe3f1ff8c3fb0821212.torrent'
       let torrent =addTorrent(sintel)
       
-      (function () {
-    var old = console.log;
+
     var logger = document.getElementById('log');
-    console.log = function () {
-      for (var i = 0; i < arguments.length; i++) {
-        if (typeof arguments[i] == 'object') {
-            logger.innerHTML += (JSON && JSON.stringify ? JSON.stringify(arguments[i], undefined, 2) : arguments[i]) + '<br />';
-        } else {
-            logger.innerHTML += arguments[i] + '<br />';
+    function log(text) {
+            logger.innerHTML += text + '<br />';
         }
-      }
-    }
-})();
+      navigator.storage.estimate().then((data)=>log(JSON.stringify(data)))
+
     </script>
     
   </body>

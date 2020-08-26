@@ -35,7 +35,7 @@ self.addEventListener('fetch', evt => {
     .then(([data, consumer]) => {
       const readable = 'body' in data ? data.body : new ReadableStream({
         pull(controller) {
-          console.log('requesting data')
+   //       console.log('requesting data')
           return new Promise(rs => {
             consumer.port1.onmessage = evt => {
 	//	    console.log('send data')

@@ -15,7 +15,7 @@
       client.add(sintel, async function(torrent) {
         const server = await torrent.createServer()
         await server.listen()
-        window.torrent =torrent
+     //   window.torrent =torrent
         torrent.files[0].deselect()
 
         const a = document.createElement('a')

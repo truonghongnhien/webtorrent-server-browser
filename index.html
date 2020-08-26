@@ -33,9 +33,9 @@
       // Wish there where a easier way to get some of webtorrent's classes so i can patch stuff
       // const WebTorrent = require('webtorrent')
       // const { Torrent } = WebTorrent
-  //    const dummyTorrent = client.add('06d67cc41f44fd57241551b6d95c2d1de38121ae')
- //     const torrentPrototype = Object.getPrototypeOf(dummyTorrent)
-  //    client.remove('06d67cc41f44fd57241551b6d95c2d1de38121ae')
+      const dummyTorrent = client.add('06d67cc41f44fd57241551b6d95c2d1de38121ae')
+      const torrentPrototype = Object.getPrototypeOf(dummyTorrent)
+      client.remove('06d67cc41f44fd57241551b6d95c2d1de38121ae')
 
       function getPageHTML (title, pageHtml) {
         return `<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><title>${title}</title></head><body>${pageHtml}</body></html>`

@@ -16,6 +16,7 @@
         const server = await torrent.createServer()
         await server.listen()
         window.torrent =torrent
+        torrent.files[0].deselect()
 
         const a = document.createElement('a')
         a.href = a.innerText = `./webtorrent/${torrent.infoHash}/`
@@ -32,9 +33,9 @@
       // Wish there where a easier way to get some of webtorrent's classes so i can patch stuff
       // const WebTorrent = require('webtorrent')
       // const { Torrent } = WebTorrent
-      const dummyTorrent = client.add('06d67cc41f44fd57241551b6d95c2d1de38121ae')
-      const torrentPrototype = Object.getPrototypeOf(dummyTorrent)
-      client.remove('06d67cc41f44fd57241551b6d95c2d1de38121ae')
+  //    const dummyTorrent = client.add('06d67cc41f44fd57241551b6d95c2d1de38121ae')
+ //     const torrentPrototype = Object.getPrototypeOf(dummyTorrent)
+  //    client.remove('06d67cc41f44fd57241551b6d95c2d1de38121ae')
 
       function getPageHTML (title, pageHtml) {
         return `<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><title>${title}</title></head><body>${pageHtml}</body></html>`
@@ -111,7 +112,9 @@
           }
 
           if (req.method === 'HEAD') res.body = ''
-          else res.stream = file.createReadStream(range)
+      //    else res.stream = file.createReadStream(range)
+          
+          else res.stream = file.createReadStream(0,10000000)
 
           return res
         }

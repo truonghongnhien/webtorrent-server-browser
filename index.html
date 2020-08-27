@@ -16,7 +16,7 @@
         const server = await torrent.createServer()
         await server.listen()
      //   window.torrent =torrent
-        torrent.files[0].deselect()
+    //    torrent.files[0].deselect()
 
         const a = document.createElement('a')
         a.href = a.innerText = `./webtorrent/${torrent.infoHash}/`
@@ -112,7 +112,7 @@
           }
 
           if (req.method === 'HEAD') res.body = ''
-      //    else res.stream = file.createReadStream(range)
+          else res.stream = file.createReadStream(range)
           
       //    else res.stream = file.createReadStream(0,1000)
 
